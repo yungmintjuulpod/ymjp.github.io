@@ -76,3 +76,20 @@ h1.center {
     text-align: center;
     margin-top: 0.5em;
 }
+
+/* Home/back link style used on subpages */
+.home-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Times New Roman', serif;
+    font-size: 18px;
+    padding: 6px 8px;
+    background-color: transparent;
+}
+.home-link:focus-visible {
+    outline: 2px solid rgba(255,255,255,0.2);
+    outline-offset: 2px;
+}
