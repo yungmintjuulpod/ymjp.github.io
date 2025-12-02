@@ -77,19 +77,38 @@ h1.center {
     margin-top: 0.5em;
 }
 
-/* Home/back link style used on subpages */
-.home-link {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    color: white;
-    text-decoration: none;
-    font-family: 'Times New Roman', serif;
-    font-size: 18px;
-    padding: 6px 8px;
-    background-color: transparent;
+/* Generic page content wrapper with gap from edges and centered text */
+.page-content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.25rem; /* gap from the page borders */
+    text-align: center; /* center text inside the wrapper */
 }
-.home-link:focus-visible {
-    outline: 2px solid rgba(255,255,255,0.2);
-    outline-offset: 2px;
+
+/* Photography gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto;
+    padding: 8px;
+    max-width: 1200px;
+}
+
+.gallery img {
+    display: block;
+    max-width: 320px; /* responsive cap */
+    width: 100%;
+    height: auto;
+    border: none; /* remove any border */
+    outline: none;
+    box-shadow: none; /* remove box-shadow if present */
+    background: transparent;
+}
+
+/* Make images fit nicely on smaller screens */
+@media (max-width: 600px) {
+    .gallery img { max-width: 100%; }
 }
