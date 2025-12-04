@@ -8,66 +8,31 @@
 </head>
 <body>
 
-<a class="home-link" href="index.html" aria-label="Back to Home">← Home</a>
-
 <h1 class="center">Photography</h1>
 <p style="text-align: center;"></p>
 
 <div class="gallery" aria-label="Photography gallery">
-	<img src="pics/IMG_0498.jpg" alt="Photo IMG_0498" class="gallery-img" onclick="openPreview(this)">
-	<img src="pics/IMG_0499.jpg" alt="Photo IMG_0499" class="gallery-img" onclick="openPreview(this)">
-	<img src="pics/IMG_0509.jpg" alt="Photo IMG_0509" class="gallery-img" onclick="openPreview(this)">
-	<img src="pics/IMG_0513.jpg" alt="Photo IMG_0513" class="gallery-img" onclick="openPreview(this)">
-	<img src="pics/IMG_0517.jpg" alt="Photo IMG_0517" class="gallery-img" onclick="openPreview(this)">
+	<img src="pics/IMG_0498.jpg" alt="Photo IMG_0498">
+	<img src="pics/IMG_0499.jpg" alt="Photo IMG_0499">
+	<img src="pics/IMG_0509.jpg" alt="Photo IMG_0509">
+	<img src="pics/IMG_0513.jpg" alt="Photo IMG_0513">
+	<img src="pics/IMG_0517.jpg" alt="Photo IMG_0517">
+	<img src="pics/IMG_5870.PNG" alt="Photo IMG_5870">
+	<img src="pics/IMG_5871.PNG" alt="Photo IMG_5871">
+	<img src="pics/IMG_5872.PNG" alt="Photo IMG_5872">
+	<img src="pics/IMG_5873.PNG" alt="Photo IMG_5873">
+	<img src="pics/IMG_5874.PNG" alt="Photo IMG_5874">
+	<img src="pics/IMG_5875.PNG" alt="Photo IMG_5875">
 </div>
 
-<!-- Image Preview Modal -->
-<div id="previewModal" class="preview-modal" onclick="closePreview(event)">
-	<span class="close-btn" onclick="closePreview()">&times;</span>
-	<img id="previewImage" src="" alt="Preview" class="preview-image">
-	<div class="preview-nav">
-		<button class="preview-btn" onclick="previousImage()">&lt;</button>
-		<button class="preview-btn" onclick="nextImage()">&gt;</button>
-	</div>
-</div>
-
-<script>
-let currentPreviewIndex = 0;
-const galleryImages = document.querySelectorAll('.gallery-img');
-
-function openPreview(img) {
-	const modal = document.getElementById('previewModal');
-	const previewImage = document.getElementById('previewImage');
-	currentPreviewIndex = Array.from(galleryImages).indexOf(img);
-	previewImage.src = img.src;
-	modal.style.display = 'flex';
-}
-
-function closePreview(event) {
-	if (event && event.target.id !== 'previewModal') return;
-	document.getElementById('previewModal').style.display = 'none';
-}
-
-function nextImage() {
-	currentPreviewIndex = (currentPreviewIndex + 1) % galleryImages.length;
-	document.getElementById('previewImage').src = galleryImages[currentPreviewIndex].src;
-}
-
-function previousImage() {
-	currentPreviewIndex = (currentPreviewIndex - 1 + galleryImages.length) % galleryImages.length;
-	document.getElementById('previewImage').src = galleryImages[currentPreviewIndex].src;
-}
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-	const modal = document.getElementById('previewModal');
-	if (modal.style.display === 'flex') {
-		if (e.key === 'ArrowRight') nextImage();
-		if (e.key === 'ArrowLeft') previousImage();
-		if (e.key === 'Escape') closePreview();
-	}
-});
-</script>
+<details class="menu">
+	<summary aria-label="Open menu">☰</summary>
+	<ul class="menu">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="projects.html">Projects</a></li>
+		<li><a href="mystory.html">My Story</a></li>
+	</ul>
+</details>
 
 </body>
 </html>

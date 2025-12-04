@@ -1,34 +1,7 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
-    background-color: #008080;
-    color: #000;
-    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Arial, sans-serif;
-    margin: 0;
-    padding: 8px;
-    min-height: 100vh;
-}
-
-/* Windows 95 style beveled box */
-.win95-panel {
-    background-color: #c0c0c0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    padding: 2px;
-    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    background-color: #000080;
+    background-color: black;
     color: white;
-    padding: 2px 4px;
-    margin: 8px 0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    text-shadow: 1px 1px 0 #000;
-    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* Hamburger menu in the top-right */
@@ -43,22 +16,17 @@ details.menu summary {
     list-style: none;
     -webkit-user-select: none;
     user-select: none;
-    background-color: #c0c0c0;
-    color: #000;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
+    background-color: black;
+    color: white;
+    border: none;
     font-size: 24px;
-    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Arial, sans-serif;
-    padding: 2px 6px;
+    font-family: 'Times New Roman', serif;
+    padding: 4px 8px;
     margin: 0;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-}
-
-details.menu summary:active {
-    border-color: #808080 #dfdfdf #dfdfdf #808080;
 }
 
 /* Remove the default marker (arrow) for summary in most browsers */
@@ -73,182 +41,34 @@ details.menu summary:active {
 }
 
 details.menu summary:focus-visible {
-    outline: 1px dotted #000;
-    outline-offset: -4px;
+    outline: 2px solid rgba(255,255,255,0.2);
+    outline-offset: 2px;
 }
 
 /* Dropdown list styles */
 details.menu ul.menu {
     list-style: none;
-    margin: 2px 0 0 0;
-    padding: 2px;
-    background-color: #c0c0c0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
+    margin: 6px 0 0 0;
+    padding: 4px 0;
+    background-color: black;
+    border-radius: 2px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     min-width: 160px;
     text-align: left;
 }
 
-details.menu ul.menu li {
-    margin: 0;
-    padding: 0;
-}
-
 details.menu ul.menu li a {
     display: block;
-    color: #000;
+    color: white;
     text-decoration: none;
-    padding: 4px 8px;
-    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Arial, sans-serif;
-    font-size: 14px;
-    background-color: #c0c0c0;
+    padding: 8px 12px;
+    font-family: 'Times New Roman', serif;
+    font-size: 18px;
 }
 
 details.menu ul.menu li a:hover,
 details.menu ul.menu li a:focus {
-    background-color: #000080;
-    color: white;
-}
-
-/* Preview cards container */
-.previews-container {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    margin: 20px auto;
-}
-
-.preview-window {
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    background-color: #c0c0c0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
-    display: flex;
-    flex-direction: column;
-    user-select: none;
-    z-index: 100;
-}
-
-.preview-window.minimized .preview-content {
-    display: none;
-}
-
-.preview-window.minimized {
-    height: auto;
-}
-
-.preview-title-bar {
-    background-color: #000080;
-    color: white;
-    padding: 2px 2px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: move;
-    user-select: none;
-    border-bottom: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-}
-
-.preview-title-text {
-    font-weight: bold;
-    font-size: 12px;
-    flex-grow: 1;
-    padding: 2px 4px;
-    text-shadow: 1px 1px 0 #000080;
-}
-
-.preview-title-buttons {
-    display: flex;
-    gap: 2px;
-}
-
-.title-btn {
-    width: 16px;
-    height: 14px;
-    background-color: #c0c0c0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    color: #000;
-    font-size: 10px;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
-.title-btn:hover {
-    background-color: #dfdfdf;
-}
-
-.title-btn:active {
-    border-color: #808080 #dfdfdf #dfdfdf #808080;
-}
-
-.preview-content {
-    padding: 8px;
-    text-align: center;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.preview-content p {
-    margin: 0 0 12px 0;
-    font-size: 12px;
-    line-height: 1.4;
-}
-
-.preview-link {
-    background-color: #c0c0c0;
-    color: #000;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    padding: 4px 12px;
-    text-decoration: none;
-    font-size: 12px;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
-}
-
-.preview-link:hover {
-    background-color: #000080;
-    color: white;
-}
-
-.preview-link:active {
-    border-color: #808080 #dfdfdf #dfdfdf #808080;
-}
-
-/* Home link */
-.home-link {
-    display: inline-block;
-    padding: 4px 8px;
-    margin: 8px;
-    background-color: #c0c0c0;
-    color: #000;
-    text-decoration: none;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Arial, sans-serif;
-    font-size: 14px;
-}
-
-.home-link:active {
-    border-color: #808080 #dfdfdf #dfdfdf #808080;
-}
-
-.home-link:hover {
-    background-color: #000080;
-    color: white;
+    background-color: rgba(255,255,255,0.05);
 }
 
 /* Center the main heading */
@@ -260,29 +80,21 @@ h1.center {
 /* Generic page content wrapper with gap from edges and centered text */
 .page-content {
     max-width: 760px;
-    margin: 8px auto;
-    padding: 8px;
-    text-align: center;
-    background-color: #c0c0c0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
+    margin: 0 auto;
+    padding: 1.25rem; /* gap from the page borders */
+    text-align: center; /* center text inside the wrapper */
 }
-
-
 
 /* Photography gallery */
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 12px;
     justify-content: center;
     align-items: center;
     margin: 16px auto;
     padding: 8px;
     max-width: 1200px;
-    background-color: #c0c0c0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
 }
 
 .gallery img {
@@ -290,91 +102,13 @@ h1.center {
     max-width: 320px; /* responsive cap */
     width: 100%;
     height: auto;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
+    border: none; /* remove any border */
     outline: none;
-    background: #c0c0c0;
-    padding: 2px;
-}
-
-.gallery img:hover {
-    border-color: #808080 #dfdfdf #dfdfdf #808080;
-    filter: brightness(1.1);
-}
-
-/* Image Preview Modal */
-.preview-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.preview-image {
-    max-width: 90%;
-    max-height: 80%;
-    object-fit: contain;
-    border: 3px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-}
-
-.close-btn {
-    position: absolute;
-    top: 12px;
-    right: 24px;
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 2001;
-}
-
-.close-btn:hover {
-    color: #c0c0c0;
-}
-
-.preview-nav {
-    display: flex;
-    gap: 12px;
-    margin-top: 12px;
-}
-
-.preview-btn {
-    background-color: #c0c0c0;
-    color: #000;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    padding: 8px 16px;
-    font-size: 18px;
-    cursor: pointer;
-    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Arial, sans-serif;
-}
-
-.preview-btn:hover {
-    background-color: #dfdfdf;
-}
-
-.preview-btn:active {
-    border-color: #808080 #dfdfdf #dfdfdf #808080;
-}
-
-p {
-    color: #000;
-    line-height: 1.6;
-    margin: 12px 0;
+    box-shadow: none; /* remove box-shadow if present */
+    background: transparent;
 }
 
 /* Make images fit nicely on smaller screens */
 @media (max-width: 600px) {
     .gallery img { max-width: 100%; }
-    h1.center {
-        font-size: 20px;
-    }
 }
