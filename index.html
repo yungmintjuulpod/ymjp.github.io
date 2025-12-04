@@ -3,23 +3,135 @@
 <head>
 <title>YMJP</title>
 <link rel="stylesheet" href="style.css">
-<!-- Styles moved to style.css -->
 </head>
 <body>
 
 <main class="page-content">
     <h1 class="center">WELCOME</h1>
-    <p>This is a website to show the world different aspects of myself from my recovery journey to pictures to coding or hard ware projects! Click the three lines to navigate my website.</p>
+    <p>This is a website to show the world different aspects of myself from my recovery journey to pictures to coding or hard ware projects! Click on any window to navigate or drag them around.</p>
 </main>
 
-<details class="menu">
-    <summary aria-label="Open menu">☰</summary>
-    <ul class="menu">
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="mystory.html">My Story</a></li>
-        <li><a href="photography.html">Photography</a></li>
-    </ul>
-</details>
+<div class="previews-container" id="previewsContainer">
+    <div class="preview-window" id="window1">
+        <div class="preview-title-bar" onmousedown="startDrag(event)">
+            <div class="preview-title-text">My Story</div>
+            <div class="preview-title-buttons">
+                <button class="title-btn" onclick="minimizeWindow(event)">_</button>
+                <button class="title-btn" onclick="closeWindow(event)">×</button>
+            </div>
+        </div>
+        <div class="preview-content">
+            <p>Learn about my recovery journey and personal story.</p>
+            <a href="mystory.html" class="preview-link">Open →</a>
+        </div>
+    </div>
+
+    <div class="preview-window" id="window2">
+        <div class="preview-title-bar" onmousedown="startDrag(event)">
+            <div class="preview-title-text">Projects</div>
+            <div class="preview-title-buttons">
+                <button class="title-btn" onclick="minimizeWindow(event)">_</button>
+                <button class="title-btn" onclick="closeWindow(event)">×</button>
+            </div>
+        </div>
+        <div class="preview-content">
+            <p>Check out my coding and hardware projects.</p>
+            <a href="projects.html" class="preview-link">Open →</a>
+        </div>
+    </div>
+
+    <div class="preview-window" id="window3">
+        <div class="preview-title-bar" onmousedown="startDrag(event)">
+            <div class="preview-title-text">Photography</div>
+            <div class="preview-title-buttons">
+                <button class="title-btn" onclick="minimizeWindow(event)">_</button>
+                <button class="title-btn" onclick="closeWindow(event)">×</button>
+            </div>
+        </div>
+        <div class="preview-content">
+            <p>View my photography gallery.</p>
+            <a href="photography.html" class="preview-link">Open →</a>
+        </div>
+    </div>
+</div>
+
+<script>
+let draggedElement = null;
+let offsetX = 0;
+let offsetY = 0;
+
+// Randomize window positions on page load
+window.addEventListener('load', function() {
+    const container = document.getElementById('previewsContainer');
+    const windowWidth = 280;
+    const windowHeight = 280;
+    const padding = 20;
+    
+    const maxX = Math.max(0, window.innerWidth - windowWidth - padding);
+    const maxY = Math.max(0, window.innerHeight - windowHeight - padding);
+    
+    const windows = document.querySelectorAll('.preview-window');
+    let positions = [];
+    
+    windows.forEach((win, index) => {
+        let randomX, randomY, overlapping;
+        
+        // Keep trying random positions until we find one that doesn't overlap
+        do {
+            randomX = Math.random() * maxX;
+            randomY = Math.random() * maxY;
+            
+            overlapping = positions.some(pos => {
+                return !(randomX + windowWidth < pos.x || 
+                         randomX > pos.x + windowWidth || 
+                         randomY + windowHeight < pos.y || 
+                         randomY > pos.y + windowHeight);
+            });
+        } while (overlapping && positions.length > 0);
+        
+        positions.push({ x: randomX, y: randomY });
+        win.style.left = randomX + 'px';
+        win.style.top = randomY + 'px';
+        win.style.zIndex = 100 + index;
+    });
+});
+
+function startDrag(event) {
+    draggedElement = event.target.closest('.preview-window');
+    if (!draggedElement) return;
+    
+    const rect = draggedElement.getBoundingClientRect();
+    offsetX = event.clientX - rect.left;
+    offsetY = event.clientY - rect.top;
+    draggedElement.style.zIndex = 1000;
+    
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', stopDrag);
+}
+
+function drag(event) {
+    if (!draggedElement) return;
+    draggedElement.style.left = (event.clientX - offsetX) + 'px';
+    draggedElement.style.top = (event.clientY - offsetY) + 'px';
+}
+
+function stopDrag() {
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('mouseup', stopDrag);
+}
+
+function minimizeWindow(event) {
+    event.preventDefault();
+    const window = event.target.closest('.preview-window');
+    window.classList.toggle('minimized');
+}
+
+function closeWindow(event) {
+    event.preventDefault();
+    const window = event.target.closest('.preview-window');
+    window.style.display = 'none';
+}
+</script>
 
 </body>
 </html>
