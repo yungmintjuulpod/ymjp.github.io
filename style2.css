@@ -2,6 +2,12 @@ body {
     background-color: black;
     color: white;
     font-family: 'Times New Roman', Times, serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.25rem;
+    text-align: center;
+    font-size: 24px;
+
 }
 
 details.menu {
@@ -28,19 +34,7 @@ details.menu summary {
     justify-content: center;
 }
 
-details.menu summary::-webkit-details-marker { display: none; }
-details.menu summary::marker { display: none; }
 
-details.menu summary:focus,
-details.menu summary:active {
-    outline: none;
-    box-shadow: none;
-}
-
-.details.menu summary:focus-visible {
-    outline: 2px solid rgba(255,255,255,0.2);
-    outline-offset: 2px;
-}
 
 details.menu ul.menu {
     list-style: none;
@@ -62,22 +56,14 @@ details.menu ul.menu li a {
     font-size: 18px;
 }
 
-.details.menu ul.menu li a:hover,
-.details.menu ul.menu li a:focus {
-    background-color: rgba(255,255,255,0.05);
-}
+
 
 h1.center {
     text-align: center;
     margin-top: 0.5em;
 }
 
-.page-content {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 1.25rem;
-    text-align: center;
-}
+
 
 .gallery {
     display: flex;
@@ -105,7 +91,25 @@ h1.center {
     .gallery img { max-width: 100%; }
 }
 
-a:link, a:visited {
-  color: #1a73e8; 
+a:link {
+  color: #f03232; 
   text-decoration: none; 
+}
+
+a:visited {
+  color: #fd8555; 
+  text-decoration: none; 
+}
+
+main {
+    margin-bottom:10em;
+}
+
+menu {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.25rem;
+    text-align: center;
+    font-size: 40px;
+    color:#f03232;
 }
