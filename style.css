@@ -112,3 +112,13 @@ h1.center {
 @media (max-width: 600px) {
     .gallery img { max-width: 100%; }
 }
+
+a:link {
+  color: #1a73e8; 
+  text-decoration: none; 
+}
+/* Visited link */
+a:visited {
+  color: #601e88;
+  text-decoration: none; 
+}
